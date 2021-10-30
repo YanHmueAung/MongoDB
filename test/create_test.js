@@ -6,7 +6,11 @@ describe('Creating records', () => {
         const joe = new User({
             name: 'Joe'
         });
-        joe.save();
+        joe.save()
+            .then(() => {
+                //has joe been saved successfully?
+                assert(joe.isNew);
+            })
     })
 })//done tell the mocha when everything is done
 beforeEach((done) => {
