@@ -16,8 +16,15 @@ before((done) => {
 
 //done tell the mocha when everything is done
 beforeEach((done) => {
-    mongoose.connection.collections.users.drop(() => {
+    //console.log(mongoose.connection.collections)
+    const { users, comments, blogposts } = mongoose.connection.collections;
+    users.drop(() => {
         //Ready to run the next test!
-        done();
+        comments.drop(() => {
+            blogposts.drop(() => {
+                done();
+
+            })
+        })
     });
 })
