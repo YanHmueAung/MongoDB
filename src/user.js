@@ -11,9 +11,12 @@ const UserSchema = new Schema({
         },
         required: [true, 'Name is required'],
     },
-    posts: [PostSchema]
+    posts: [PostSchema],
+    likes: Number
 });
 UserSchema.virtual('postCount').get(function () {
+    //we only use the 'function()' not ES6
+    //so that we can retunr current object
     //if we say 'return this' return the current object
     return this.posts.length;
 
