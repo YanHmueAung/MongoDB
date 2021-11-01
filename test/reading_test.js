@@ -12,8 +12,8 @@ describe('Reading users out of the database', () => {
         //joe instance of user
         User.find({ name: 'Joe' })
             .then((users) => {
-                console.log(users[0]._id);
-                console.log(joe._id);
+                //  console.log(users[0]._id);
+                // console.log(joe._id);
 
                 assert(users[0]._id.toString() === joe._id.toString())
                 done();
@@ -22,7 +22,7 @@ describe('Reading users out of the database', () => {
     it('find a user with a particular id', (done) => {
         User.findOne({ _id: joe._id })
             .then((user) => {
-                console.log(user);
+                //console.log(user);
                 assert(user.name === 'Joe');
                 done();
             })
